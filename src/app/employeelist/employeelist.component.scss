@@ -1,0 +1,28 @@
+.mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 10px 10px 10px 0;
+  }
+
+td, th {
+    //text-align: center !important;
+    //vertical-align: middle !important;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 150px;
+ }
+
+// .mat-sort-header-container {
+//     justify-content: center !important;
+// }
+
+.toolbar-spacer{
+    flex:1 1 auto;
+}
+
+mat-toolbar{
+    background: #006f9f;
+    color: white;
+}

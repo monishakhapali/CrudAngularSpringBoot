@@ -1,0 +1,84 @@
+<div mat-dialog-title> 
+    <h1>Employee Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" placeholder="Ex. Eric" formControlName="employeeFname">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Ex. Barkley" formControlName="employeeLname">
+          </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Department</mat-label>
+        <mat-select formControlName="departmentName">
+          <mat-option *ngFor="let val of depts" [value]="val.deptName">
+            {{val.deptName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contact No</mat-label>
+        <input matInput type="text" placeholder="Ex. 2643335656" formControlName="contactNo">
+      </mat-form-field>
+  </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Date of birth</mat-label>
+        <div class="row">
+          <input matInput [matDatepicker]="picker" formControlName="dob">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </div>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+    </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+          <mat-label>Address1</mat-label>
+          <input matInput type="text" placeholder="Ex. 126 Fort Rd" formControlName="address1">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Address2</mat-label>
+          <input matInput type="text" placeholder="Ex. #2" formControlName="address2">
+        </mat-form-field>
+  </div>
+  <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput type="text" placeholder="Ex. New York" formControlName="city">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state">
+              <mat-option *ngFor="let val of states" [value]="val.stateName">
+                {{val.stateName}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+   </div>
+   <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Country</mat-label>
+      <mat-select  formControlName="country">
+        <mat-option *ngFor="let val of countries" [value]="val.countryName">
+          {{val.countryName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>  
+   </div>
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+</div>
+</form>
